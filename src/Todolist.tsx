@@ -1,5 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
-import {FilterValue} from "./App";
+import {FilterValue, TaskType} from "./App";
 import s from './todolist.module.css';
 
 type PropsType = {
@@ -13,11 +13,6 @@ type PropsType = {
 
 }
 
-export type TaskType = {
-    id: string
-    title: string
-    isDone: boolean
-}
 
 export const Todolist = (props: PropsType) => {
 

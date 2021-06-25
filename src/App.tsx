@@ -5,6 +5,12 @@ import {v1} from "uuid";
 
 export type FilterValue = 'All' | 'Active' | 'Completed'
 
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
+
 const App = () => {
 
     const title = 'What to learn';
