@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
-import s from "./todolist.module.css";
+import { IconButton, TextField} from "@material-ui/core";
+import {ControlPoint} from "@material-ui/icons";
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
@@ -25,7 +26,7 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
     };
 
     const addItemCallback = () => {
-         if (title.trim() === '') {
+        if (title.trim() === '') {
             setError('Title is required');
             return;
         }
@@ -35,9 +36,18 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
 
     return (
         <div>
-            <input type="text" onChange={onChangeCallBack} value={title} onKeyPress={onKeyPressCallback} className={error ? s.error : ''}/>
-            <button onClick={addItemCallback}>+</button>
-            <div className={error ? s.errorMessage : ''}>{error}</div>
+            <TextField variant={"outlined"}
+                       label={'Type Value'}
+                       type="text"
+                       onChange={onChangeCallBack}
+                       value={title}
+                       onKeyPress={onKeyPressCallback}
+                       error={!!error}
+                       helperText={error}             />
+
+            <IconButton onClick={addItemCallback} color={'primary'} >
+                <ControlPoint />
+            </IconButton>
         </div>
     );
 };
