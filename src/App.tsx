@@ -6,7 +6,7 @@ import {AddItemForm} from "./AddItemForm";
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@material-ui/core";
 import {Menu} from "@material-ui/icons";
 
-type TodolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: FilterValueType
@@ -26,6 +26,30 @@ type TasksStateType = {
 
 
 const App = () => {
+
+    let todolistId_1 = v1();
+    let todolistId_2 = v1();
+
+
+    let [todolists, setTodolists] = useState<TodolistType[]>([
+        {id: todolistId_1, title: "What to learn", filter: 'All'},
+        {id: todolistId_2, title: "What to buy", filter: 'Active'}
+    ]);
+
+    let [tasksObj, setTasksObj] = useState<TasksStateType>({
+
+        [todolistId_1]: [
+            {id: v1(), title: 'HTML', isDone: true},
+            {id: v1(), title: 'CSS', isDone: false},
+            {id: v1(), title: 'JS', isDone: false},
+            {id: v1(), title: 'React.js', isDone: false}
+        ],
+
+        [todolistId_2]: [
+            {id: v1(), title: 'Milk', isDone: false},
+            {id: v1(), title: 'Water', isDone: false},
+        ]
+    });
 
     const changeTaskStatus = (isDone: boolean, taskId: string, todolistId: string) => {
 
@@ -67,29 +91,6 @@ const App = () => {
         setTasksObj({...tasksObj});
     };
 
-    let todolistId_1 = v1();
-    let todolistId_2 = v1();
-
-
-    let [todolists, setTodolists] = useState<TodolistType[]>([
-        {id: todolistId_1, title: "What to learn", filter: 'All'},
-        {id: todolistId_2, title: "What to buy", filter: 'Active'}
-    ]);
-
-    let [tasksObj, setTasksObj] = useState<TasksStateType>({
-
-        [todolistId_1]: [
-            {id: v1(), title: 'HTML', isDone: true},
-            {id: v1(), title: 'CSS', isDone: false},
-            {id: v1(), title: 'JS', isDone: false},
-            {id: v1(), title: 'React.js', isDone: false}
-        ],
-
-        [todolistId_2]: [
-            {id: v1(), title: 'Milk', isDone: false},
-            {id: v1(), title: 'Water', isDone: false},
-        ]
-    });
 
     const addTodolist = (title: string) => {
         let todolist: TodolistType = {
