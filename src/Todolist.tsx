@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from "react";
-import {FilterValueType, TaskType} from "./App";
+import {FilterValueType, TasksType} from "./App";
 import s from './todolist.module.css';
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
@@ -9,7 +9,7 @@ import {Delete} from "@material-ui/icons";
 type PropsType = {
     todolistId: string
     title: string
-    tasks: TaskType[]
+    tasks: TasksType[]
     removeTask: (id: string, todolistId: string) => void
     changeFilter: (filter: FilterValueType, todolistId: string) => void
     addTask: (newTaskTitle: string, todolistId: string) => void
