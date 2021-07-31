@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {FilterValueType, TodolistType} from '../App';
+import {FilterValueType, TodolistType} from '../AppWithReducer';
 import {addTodolistAC, changeTodolistFilterAC, changeTodolistTitleAC, removeTodolistAC, todolistsReducer} from './todolistsReducer';
 
 test('correct todolist should be removed', () => {

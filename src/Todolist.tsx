@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from "react";
-import {FilterValueType, TasksType} from "./App";
+import {FilterValueType, TasksType} from "./AppWithReducer";
 import s from './todolist.module.css';
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
@@ -56,7 +56,7 @@ export const Todolist = (props: PropsType) => {
             </h3>
             <AddItemForm addItem={addTaskCallback}/>
             <ul>
-                {props.tasks.map(task => {
+                {props.tasks?.map(task => {
                     const removeTaskCallback = () => {
                         props.removeTask(task.id, props.todolistId);
                     };
