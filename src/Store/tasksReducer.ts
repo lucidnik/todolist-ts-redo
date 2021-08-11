@@ -1,7 +1,6 @@
 import {TasksStateType,} from "../AppWithReducer";
 import {v1} from "uuid";
-import {AddTodolistActionType, RemoveTodolistActionType} from "./todolistsReducer";
-import {todolistId_1, todolistId_2} from './todolistsReducer'
+import {AddTodolistActionType, RemoveTodolistActionType, todolistId_1, todolistId_2} from "./todolistsReducer";
 
 type ActionTypes =
     AddTaskActionType
